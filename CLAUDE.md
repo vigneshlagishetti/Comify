@@ -1,3 +1,43 @@
+# CLAUDE / Byterover Memory Notes
+
+This document captures project-specific notes and guidance for working with the Claude/Byterover memory layer used by AI assistants during development. It is intended for developer reference only and should not contain secrets or credentials.
+
+Contents
+- Purpose and scope
+- How/when to use the memory layer
+- Sensitive data policy
+- Common entries and examples
+
+Purpose
+-------
+The Byterover/Claude memory layer is used to persist small amounts of contextual knowledge about the codebase and past interactions so assistant workflows can resume or reference previous decisions. Use it to store high-value implementation notes, architecture decisions, or reproducible troubleshooting steps.
+
+When to use
+-----------
+- Save design/implementation plans that will be referenced across multiple sessions.
+- Store non-sensitive code patterns, important repo conventions, or migration notes.
+- Avoid storing ephemeral developer secrets, API keys, or personally-identifiable information.
+
+Sensitive data policy
+---------------------
+- NEVER store secrets (API keys, DB passwords, private keys) in the memory file.
+- Remove any personal data, logs containing PII, or production connection strings.
+- If sensitive data is accidentally stored, rotate the secret and remove the entry immediately.
+
+Common entries & examples
+-------------------------
+- `repo_name`: Comify
+- `db_schema_path`: `supabase_schema_clerk.sql`
+- `main_dashboard_file`: `frontend/src/components/JobpilotDashboard.jsx` (renamed UI branding to Comify)
+- `notes`: "Landing page checks `GET /api/company-profile/:userId` — backend must expose this route or landing will fall back to mock behavior."
+
+Maintenance
+-----------
+- Keep this file short and high value. When making architectural changes, add a short note with date and author.
+
+Responsible usage
+-----------------
+This is a developer convenience. Do not treat it as secure storage. Use your normal secret management tooling for credentials.
 [byterover-mcp]
 
 # Byterover MCP Server Tools Reference

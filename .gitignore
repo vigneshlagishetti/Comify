@@ -186,6 +186,9 @@ coverage/
 # Netlify
 .netlify/
 
+# GitHub workflows and CI
+.github/
+
 # Local development files
 *.local
 
